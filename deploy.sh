@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -ex
+
+aws s3 sync --delete book s3://www.oxiby.com
+aws cloudfront create-invalidation --distribution-id E2UP1HR48BLT5N --paths '/*'
