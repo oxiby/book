@@ -224,16 +224,8 @@ Only make fields and methods public with the `pub` keyword when you need to.
 A field should be private if it could be made invalid as it could with our shopping list.
 
 > [!WARNING]
-> Currently, importing from a module does not automatically build that module.
-> Each dependent module must be built individually with `obc build`.
-
-> [!WARNING]
 > The `Self` type alias is not yet available.
 > The version of the above program found in the examples directory uses `ShoppingList` instead to account for this.
 
 > [!WARNING]
 > Item and field visibility is not yet enforced, so code that should be private is currently accessible from other modules.
-
-> [!WARNING]
-> Currently, modules cannot be in nested directories.
-> Outside of the automatically generated `std` modules, all user modules must live in the same directory.
