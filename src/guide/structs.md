@@ -145,8 +145,9 @@ It also means that if we decide to rename the type, we only have to change its n
 In Oxiby, static function names don't have any special meaning, so we don't have to name constructors anything specific like `new`, as we do in other programming languages.
 However, `new` is a coventional name that most programmers will find unsurprising, so it's a good idea to use for a type's main constructor.
 
-> **Warning: The `Self` type alias is not yet available.
-> The version of the above program found in the examples directory uses `ShoppingList` to account for this.**
+> [!WARNING]
+> The `Self` type alias is not yet available.
+> The version of the above program found in the examples directory uses `ShoppingList` to account for this.
 
 ## Tuple structs
 
@@ -217,7 +218,8 @@ struct ExclamationString(String) {
 ```
 They're also convenient when the meaning of the fields are obvious and writing out names for them wouldn't provide much value.
 
-> **Warning: The `Self` type alias is not yet available as shown above.**
+> [!WARNING]
+> The `Self` type alias is not yet available as shown above.
 
 ## Unit structs
 

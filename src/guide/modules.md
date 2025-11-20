@@ -211,7 +211,7 @@ match shopping_list.add_food("apple", -1) {
 
 When we match on the result, we use the pattern `Ok(_)`.
 The underscore matches any value but does not bind it to a variable.
-We use this because we aren't going to be doing anything with the unit inside the result—we just want to know when the `add_food` call was successful.
+We use this because we aren't going to be doing anything with the unit inside the result---we just want to know when the `add_food` call was successful.
 
 Just like `new`, `add_food` is marked with `pub` so we can use it from `main.ob`.
 Of course, not all methods need to be marked with `pub`.
@@ -223,13 +223,17 @@ When writing our own types, it's a good idea to use the default, private visibil
 Only make fields and methods public with the `pub` keyword when you need to.
 A field should be private if it could be made invalid as it could with our shopping list.
 
-> **Warning: Currently, importing from a module does not automatically build that module.
-> Each dependent module must be built individually with `obc build`.**
+> [!WARNING]
+> Currently, importing from a module does not automatically build that module.
+> Each dependent module must be built individually with `obc build`.
 
-> **Warning: The `Self` type alias is not yet available.
-> The version of the above program found in the examples directory uses `ShoppingList` instead to account for this.**
+> [!WARNING]
+> The `Self` type alias is not yet available.
+> The version of the above program found in the examples directory uses `ShoppingList` instead to account for this.
 
-> **Warning: Item and field visibility is not yet enforced, so code that should be private is currently accessible from other modules.**
+> [!WARNING]
+> Item and field visibility is not yet enforced, so code that should be private is currently accessible from other modules.
 
-> **Warning: Currently, modules cannot be in nested directories.
-> Outside of the automatically generated `std` modules, all user modules must live in the same directory.**
+> [!WARNING]
+> Currently, modules cannot be in nested directories.
+> Outside of the automatically generated `std` modules, all user modules must live in the same directory.

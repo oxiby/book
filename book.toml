@@ -7,7 +7,5 @@ title = "The Oxiby Programming Language"
 
 [output.html]
 additional-js = ["js/highlight.min.js", "js/oxiby.min.js"]
-cname = "www.oxiby.com"
 edit-url-template = "https://github.com/oxiby/book/edit/main/{path}"
 git-repository-url = "https://github.com/oxiby/book"
-hash-files = true

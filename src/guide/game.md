@@ -499,9 +499,10 @@ Then we `break` out of the inner loop to start a new turn.
 If `read_line` returned an `Err` or `game.choose` returned false, we fall through to the `print_line` statements at the bottom, letting the player know that whatever input they entered either couldn't be read or wasn't an available cell.
 The inner loop then starts again, and continues the same process until the player chooses a valid cell.
 
-> **Warning: `s.to_i` is just Ruby's `String#to_i` method exposed directly, which does loose conversions like parsing `"a"` as `0`.
+> [!WARNING]
+> `s.to_i` is just Ruby's `String#to_i` method exposed directly, which does loose conversions like parsing `"a"` as `0`.
 > This program is written assuming the input will always successfully parse into a valid integer, but that isn't guaranteed.
-> In the future, Oxiby will provide a safer technique for parsing integers from strings.**
+> In the future, Oxiby will provide a safer technique for parsing integers from strings.
 
 ### Choosing a cell
 

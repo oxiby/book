@@ -95,8 +95,9 @@ Because `print_line` doesn't know anything about `s` other than that it implemen
 But that's okay, because that's all `print_line` needs.
 In its implementation, it calls `to_string` on the given argument, and prints the resulting string to the standard output.
 
-> **Warning: All user-defined types can be printed with `print_line` regardless of whether or not they implement `ToString`.
-> Implementing `ToString` will override the default formatting.**
+> [!WARNING]
+> All user-defined types can be printed with `print_line` regardless of whether or not they implement `ToString`.
+> Implementing `ToString` will override the default formatting.
 
 ## Operators as traits
 
@@ -210,11 +211,13 @@ Essentially this definition says, "When you add a `ShoppingList` to another `Sho
 The implementation of the `add` method creates an empty hash map, copies over each key/value pair from `self` (which is the `ShoppingList` on the left-hand side of the addition operation), and then copies over each key/value pair from `other` (the `ShoppingList` on the right-hand side), taking care to add quantities to existing ones if there was already a value for a particular key in the hash map.
 Finally, a new `ShoppingList` with the new hash map is constructed and returned.
 
-> **Warning: The `Add` trait is not yet mapped to the `+` operator.
-> The version of the above program found in the examples directory uses a method `add` on `ShoppingList` instead to account for this.**
+> [!WARNING]
+> The `Add` trait is not yet mapped to the `+` operator.
+> The version of the above program found in the examples directory uses a method `add` on `ShoppingList` instead to account for this.
 
-> **Warning: The `Self` type alias is not yet available.
-> The version of the above program found in the examples directory uses `ShoppingList` instead to account for this.**
+> [!WARNING]
+> The `Self` type alias is not yet available.
+> The version of the above program found in the examples directory uses `ShoppingList` instead to account for this.
 
 ## Multiple implementations of the same trait
 
@@ -284,12 +287,14 @@ Likewise, the calling code can't change the fact that adding a `(String, Integer
 In our case, `Self.Output` is just `Self`, so adding something to a `ShoppingList` produces a new `ShoppingList`.
 However, this `Output` associated type allows for the flexibility of the result of the operation being a different type than its operands.
 
-> **Warning: The type checker is not implemented yet, so adding a second implementation of a trait for a type will overwrite the previous one.
-As such, the two example programs in this chapter cannot currently be combined into one.**
+> [!WARNING]
+> The type checker is not implemented yet, so adding a second implementation of a trait for a type will overwrite the previous one.
+As such, the two example programs in this chapter cannot currently be combined into one.
 
-> **Warning: The `Add` trait is not yet mapped to the `+` operator.
-> The version of the above program found in the examples directory uses a method `add` on `ShoppingList` instead to account for this.**
+> [!WARNING]
+> The `Add` trait is not yet mapped to the `+` operator.
+> The version of the above program found in the examples directory uses a method `add` on `ShoppingList` instead to account for this.
 
-> **Warning: The `Self` type alias is not yet available.
-> The version of the above program found in the examples directory uses `ShoppingList` instead to account for this.**
-
+> [!WARNING]
+> The `Self` type alias is not yet available.
+> The version of the above program found in the examples directory uses `ShoppingList` instead to account for this.

@@ -5,7 +5,7 @@ Now it's time to explore this feature in depth!
 
 ## Generic functions
 
-We know that functions can have parameters—values they take as input that determine what they ultimately return.
+We know that functions can have parameters---values they take as input that determine what they ultimately return.
 
 ```oxiby
 fn identity(value: Integer) -> Integer {
@@ -131,7 +131,8 @@ fn main() {
 Type annotations are type names that come after the variable name, with the two separated by a colon.
 The `<Integer>` syntax tells the compiler what the concrete type of the type parameter `t` is for this particular `None` value.
 
-> **Warning: The type checker is not implemented yet, so the `no_type_annotation.ob` module will actually compile just fine.**
+> [!WARNING]
+> The type checker is not implemented yet, so the `no_type_annotation.ob` module will actually compile just fine.
 
 ## What can we do with a `t`?
 
@@ -183,4 +184,5 @@ Why not?
 How can we add two `t`s together?
 We'll find out in the next chapter.
 
-> **Warning: The type checker is not implemented yet, so the `add.ob` module will actually compile just fine.**
+> [!WARNING]
+> The type checker is not implemented yet, so the `add.ob` module will actually compile just fine.

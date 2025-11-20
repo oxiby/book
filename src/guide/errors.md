@@ -130,5 +130,6 @@ match read_line {
 }
 ```
 
-> **Warning: Non-exhaustive matches are not yet enforced at compile time.
-> Failure to account for all possibilities might result in a runtime crash.**
+> [!WARNING]
+> Non-exhaustive matches are not yet enforced at compile time.
+> Failure to account for all possibilities might result in a runtime crash.

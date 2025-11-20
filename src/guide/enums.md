@@ -93,8 +93,9 @@ fn main() {
 These work in exactly the same way as structs, except that each method needs to do some extra work to determine which variant it's being called on.
 Remember that `Self` is an alias for the type the method belongs to.
 
-> **Warning: The `Self` type alias is not yet available.
-> The version of the above program found in the examples directory uses `Vehicle` instead to account for this.**
+> [!WARNING]
+> The `Self` type alias is not yet available.
+> The version of the above program found in the examples directory uses `Vehicle` instead to account for this.
 
 ## Pattern matching
 

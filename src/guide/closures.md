@@ -29,9 +29,10 @@ Calling the closure is done by writing whatever local variable name it's bound t
 We might wonder why closures are useful if they are defined and used more or less like regular functions.
 There are two main reasons.
 
-> **Warning: Calling a closure like a function doesn't work yet.
+> [!WARNING]
+> Calling a closure like a function doesn't work yet.
 > Instead, you must invoke the `call` method on the closure, i.e. `closure.call()`.
-> The version of the above program found in the examples directory uses the currently working form.**
+> The version of the above program found in the examples directory uses the currently working form.
 
 ## Closures as function parameters
 
@@ -106,6 +107,7 @@ When we call the closure on the last line, it can still access `name`, a local v
 
 This property of closures can be very handy when passing them as arguments to functions.
 
-> **Warning: Calling a closure like a function doesn't work yet.
+> [!WARNING]
+> Calling a closure like a function doesn't work yet.
 > Instead, you must invoke the `call` method on the closure, i.e. `closure.call()`.
-> The version of the above program found in the examples directory uses the currently working form.**
+> The version of the above program found in the examples directory uses the currently working form.

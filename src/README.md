@@ -75,4 +75,5 @@ All the example programs shown in the book will compile and produce the expected
 
 Throughout the book, if a feature being described is notably absent or differs from the current implementation, it will be denoted with a warning like this:
 
-> **Warning: This feature is not yet implemented.**
+> [!WARNING]
+> This feature is not yet implemented.

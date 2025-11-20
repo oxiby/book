@@ -76,8 +76,9 @@ If there was no value associated with the key, we print a fallback message with 
 Remember that `match` expressions must cover all cases exhaustively, so if we leave out the `None` match arm, our program won't compile.
 This enforcement reduces bugs in our programs because we can't simply forget to check for the case of missing data.
 
-> **Warning: Non-exhaustive matches are not yet enforced at compile time.
-> Failure to account for all possibilities might result in a runtime crash.**
+> [!WARNING]
+> Non-exhaustive matches are not yet enforced at compile time.
+> Failure to account for all possibilities might result in a runtime crash.
 
 ## A note about lists
 
