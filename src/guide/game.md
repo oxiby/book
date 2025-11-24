@@ -81,7 +81,7 @@ struct Game {
         Winner.Draw
     }
 
-    fn choose(self, cell: Integer, player: Player) -> Boolean {
+    fn choose(self, :cell: Integer, :player: Player) -> Boolean {
         if !(1..=9).contains(cell) {
             return false
         }
@@ -135,7 +135,7 @@ fn main() {
 
             match read_line().map(fn (s) { s.to_i() }) {
                 Ok(cell) -> {
-                    if game.choose(cell, game.player) {
+                    if game.choose(cell: cell, player: game.player) {
                         game.player = match game.player {
                             Player.X -> Player.O,
                             Player.O -> Player.X,
@@ -321,7 +321,7 @@ If there is, we print that mark (X or O).
 If the cell is still empty, we print a dot.
 After each row, we print a blank line so that each row of cells will appear on its own line in the output.
 
-### Checking the win condition
+### Checking for a winner
 
 ```oxiby
 match game.winner() {
@@ -467,7 +467,7 @@ loop {
 
     match read_line().map(fn (s) { s.to_i() }) {
         Ok(cell) -> {
-            if game.choose(cell, game.player) {
+            if game.choose(cell: cell, player: game.player) {
                 game.player = match game.player {
                     Player.X -> Player.O,
                     Player.O -> Player.X,
@@ -510,7 +510,7 @@ The last piece of code to look at is the definition of the `choose` method.
 Again, this method's job is to try placing a player's mark in the given grid cell, and then returning a boolean value to indicate whether or not it succeeded.
 
 ```oxiby
-fn choose(self, cell: Integer, player: Player) -> Boolean {
+fn choose(self, :cell: Integer, :player: Player) -> Boolean {
     if !(1..=9).contains(cell) {
         return false
     }
@@ -524,6 +524,11 @@ fn choose(self, cell: Integer, player: Player) -> Boolean {
     }
 }
 ```
+
+The `choose` method uses keyword parameters, which we haven't used much in the guide.
+The reason we use them here is that there are multiple parameters and there is no obvious reason why `cell` needs to come before `player`.
+Using keyword parameters means we can list arguments in either order at the call site.
+Revisit [function parameters in chapter 2](/guide/functions.html#function-parameters) if you want to refresh your memory on keyword parameters.
 
 The method begins with a conditional expression to check whether or not the integer entered by the player corresponds to a cell in the grid.
 We do this by creating a range of all valid cell numbers with `(1..=9)` and then calling the `contains` method on the range to check whether a specific element is part of that range.

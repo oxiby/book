@@ -34,6 +34,42 @@ fn greet(name: String)
 Function parameters are declared with an identifier beginning with a lowercase letter followed by a colon and then a type identifier beginning with an uppercase letter.
 In this case, our function `greet` has a single parameter called `name` which must be a `String`.
 
+If a function has multiple parameters, they are separated by commas:
+
+```oxiby
+fn example(a: String, b: String)
+```
+
+Parameters like this are called **positional parameters**, because they must appear in the same order in the function definition and any time the function is called:
+
+```oxiby
+example("a", "b")
+```
+
+Functions can also have **keyword parameters**.
+These are distinguished from positional parameters by an extra colon before their identifer:
+
+```oxiby
+fn greet(:name: String)
+```
+
+The difference between these two styles is in how they are written when a function is called.
+While positional parameters must appear in the order they are defined, keyword parameters can be given in any order, because they include their identifiers at the call site:
+
+```oxiby
+fn example(x: String, y: String, :a: String, :b: String) {}
+
+fn main() {
+    example("positional x", "positional y", a: "keyword a", b: "keyword b")
+}
+```
+
+The programmer can decide whether to use positional or keyword parameters as they choose.
+A good rule of thumb is to use positional parameters when a function has only one parameter, or when the order of parameters is obvious and easy to remember.
+When a function has multiple parameters without an obvious ordering, keyword parameters are a better choice.
+
+When a function has parameters of both kinds, the keyword parameters must appear _after_ the positional parameters in both the function definition and any time the function is called.
+
 ## Function return values
 
 ```oxiby
