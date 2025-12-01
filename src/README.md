@@ -1,3 +1,5 @@
+{{#title The Oxiby Programming Language}}
+
 # Introduction
 
 **Oxiby** is a statically typed programming language inspired primarily by [Rust](https://www.rust-lang.org/).
