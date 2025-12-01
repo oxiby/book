@@ -1,0 +1,123 @@
+.latte .blockquote-tag-note {
+  color: #1e66f5;
+}
+.latte .blockquote-tag-tip {
+  color: #40a02b;
+}
+.latte .blockquote-tag-important {
+  color: #8839ef;
+}
+.latte .blockquote-tag-warning {
+  color: #df8e1d;
+}
+.latte .blockquote-tag-caution {
+  color: #d20f39;
+}
+.latte .blockquote-tag-note .blockquote-tag-title {
+  color: #1e66f5;
+}
+.latte .blockquote-tag-tip .blockquote-tag-title {
+  color: #40a02b;
+}
+.latte .blockquote-tag-important .blockquote-tag-title {
+  color: #8839ef;
+}
+.latte .blockquote-tag-warning .blockquote-tag-title {
+  color: #df8e1d;
+}
+.latte .blockquote-tag-caution .blockquote-tag-title {
+  color: #d20f39;
+}
+
+.frappe .blockquote-tag-note {
+  color: #8caaee;
+}
+.frappe .blockquote-tag-tip {
+  color: #a6d189;
+}
+.frappe .blockquote-tag-important {
+  color: #ca9ee6;
+}
+.frappe .blockquote-tag-warning {
+  color: #e5c890;
+}
+.frappe .blockquote-tag-caution {
+  color: #e78284;
+}
+.frappe .blockquote-tag-note .blockquote-tag-title {
+  color: #8caaee;
+}
+.frappe .blockquote-tag-tip .blockquote-tag-title {
+  color: #a6d189;
+}
+.frappe .blockquote-tag-important .blockquote-tag-title {
+  color: #ca9ee6;
+}
+.frappe .blockquote-tag-warning .blockquote-tag-title {
+  color: #e5c890;
+}
+.frappe .blockquote-tag-caution .blockquote-tag-title {
+  color: #e78284;
+}
+
+.macchiato .blockquote-tag-note {
+  color: #8aadf4;
+}
+.macchiato .blockquote-tag-tip {
+  color: #a6da95;
+}
+.macchiato .blockquote-tag-important {
+  color: #c6a0f6;
+}
+.macchiato .blockquote-tag-warning {
+  color: #eed49f;
+}
+.macchiato .blockquote-tag-caution {
+  color: #ed8796;
+}
+.macchiato .blockquote-tag-note .blockquote-tag-title {
+  color: #8aadf4;
+}
+.macchiato .blockquote-tag-tip .blockquote-tag-title {
+  color: #a6da95;
+}
+.macchiato .blockquote-tag-important .blockquote-tag-title {
+  color: #c6a0f6;
+}
+.macchiato .blockquote-tag-warning .blockquote-tag-title {
+  color: #eed49f;
+}
+.macchiato .blockquote-tag-caution .blockquote-tag-title {
+  color: #ed8796;
+}
+
+.mocha .blockquote-tag-note {
+  color: #89b4fa;
+}
+.mocha .blockquote-tag-tip {
+  color: #a6e3a1;
+}
+.mocha .blockquote-tag-important {
+  color: #cba6f7;
+}
+.mocha .blockquote-tag-warning {
+  color: #f9e2af;
+}
+.mocha .blockquote-tag-caution {
+  color: #f38ba8;
+}
+.mocha .blockquote-tag-note .blockquote-tag-title {
+  color: #89b4fa;
+}
+.mocha .blockquote-tag-tip .blockquote-tag-title {
+  color: #a6e3a1;
+}
+.mocha .blockquote-tag-important .blockquote-tag-title {
+  color: #cba6f7;
+}
+.mocha .blockquote-tag-warning .blockquote-tag-title {
+  color: #f9e2af;
+}
+.mocha .blockquote-tag-caution .blockquote-tag-title {
+  color: #f38ba8;
+}

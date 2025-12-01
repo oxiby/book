@@ -6,6 +6,9 @@ src = "src"
 title = "The Oxiby Programming Language"
 
 [output.html]
+additional-css = ["theme/catppuccin.css", "theme/catppuccin-alerts.css"]
 additional-js = ["js/highlight.min.js", "js/oxiby.min.js"]
+default-theme = "latte"
+preferred-dark-theme = "mocha"
 edit-url-template = "https://github.com/oxiby/book/edit/main/{path}"
 git-repository-url = "https://github.com/oxiby/book"
