@@ -98,7 +98,7 @@ enum Option<t> {
 Here's an example that shows they are generic over the type they contain:
 
 ```oxiby
-// File: examples/chapter_13_generics/no_type_annotation.ob
+// File: examples/chapter_13_generics/no_type_ascription.ob
 
 fn main() {
     let ok_integer = Ok(1)
@@ -117,10 +117,10 @@ fn main() {
 
 If we try to compile the above program, we'll get errors saying that the types of `none_integer` and `none_string` can't be determined.
 `None` is the variant of `Option` where data is absent, but without context, it doesn't tell us what kind of data is absent.
-In cases like this, we need to give the compiler a hint by adding type annotations to our variables:
+In cases like this, we need to give the compiler a hint by ascribing our variables with types:
 
 ```oxiby
-// File: examples/chapter_13_generics/type_annotation.ob
+// File: examples/chapter_13_generics/type_ascription.ob
 
 fn main() {
     let none_integer: Option<Integer> = None
@@ -128,11 +128,11 @@ fn main() {
 }
 ```
 
-Type annotations are type names that come after the variable name, with the two separated by a colon.
+**Type ascriptions** are type names that come after the variable name, with the two separated by a colon.
 The `<Integer>` syntax tells the compiler what the concrete type of the type parameter `t` is for this particular `None` value.
 
 > [!WARNING]
-> The type checker is not implemented yet, so the `no_type_annotation.ob` module will actually compile just fine.
+> This type checking is not implemented yet, so the `no_type_ascription.ob` module will actually compile just fine.
 
 ## What can we do with a `t`?
 
@@ -185,4 +185,4 @@ How can we add two `t`s together?
 We'll find out in the next chapter.
 
 > [!WARNING]
-> The type checker is not implemented yet, so the `add.ob` module will actually compile just fine.
+> This type checking is not implemented yet, so the `add.ob` module will actually compile just fine.

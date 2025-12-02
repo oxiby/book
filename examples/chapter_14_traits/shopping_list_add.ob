@@ -5,7 +5,7 @@ struct ShoppingList {
 
     fn new() -> Self {
         ShoppingList {
-            map: HashMap.new(),
+            map = HashMap.new(),
         }
     }
 
@@ -14,7 +14,7 @@ struct ShoppingList {
 impl Add for ShoppingList {
     type output = Self
 
-    fn add(self, other: Self) -> Self.Output {
+    fn add(self, other: Self) -> output {
         let combined_map = HashMap.new()
 
         for (key, value) in self.map {
@@ -26,7 +26,7 @@ impl Add for ShoppingList {
         }
 
         ShoppingList {
-            map: combined_map,
+            map = combined_map,
         }
     }
 }

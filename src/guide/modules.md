@@ -96,12 +96,12 @@ struct ShoppingList {
 
 fn main() {
     let shopping_list = ShoppingList {
-        map: HashMap.new(),
+        map = HashMap.new(),
     }
 
     shopping_list.map["apple"] = -1
 
-    print_line("Number of apples to buy: #{shopping_list.map["apple"]}")
+    print_line("Number of apples to buy: #{shopping_list.map["apple"].unwrap_or(0)}")
 }
 ```
 
@@ -123,7 +123,7 @@ pub struct ShoppingList {
 
     pub fn new() -> Self {
         Self {
-            map: HashMap.new(),
+            map = HashMap.new(),
         }
     }
 

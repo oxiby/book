@@ -1,7 +1,7 @@
 use shopping_list ShoppingList
 
 fn main() {
-    let shopping_list = ShoppingList.create()
+    let shopping_list = ShoppingList.new()
 
     match shopping_list.add_food("apple", -1) {
         Ok(_) -> print_line("Added apples to our shopping list."),

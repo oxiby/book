@@ -40,11 +40,13 @@ If a function has multiple parameters, they are separated by commas:
 fn example(a: String, b: String)
 ```
 
-Parameters like this are called **positional parameters**, because they must appear in the same order in the function definition and any time the function is called:
+Parameters like this are called **positional parameters**, because when the function is called, the arguments must appear in the same order the parameters were defined in:
 
 ```oxiby
 example("a", "b")
 ```
+
+Note that the term **parameters** refers to the inputs in a function definition, while the term **arguments** refers to the expressions that fulfill those inputs when a function is called.
 
 Functions can also have **keyword parameters**.
 These are distinguished from positional parameters by an extra colon before their identifer:
@@ -53,16 +55,24 @@ These are distinguished from positional parameters by an extra colon before thei
 fn greet(:name: String)
 ```
 
-The difference between these two styles is in how they are written when a function is called.
-While positional parameters must appear in the order they are defined, keyword parameters can be given in any order, because they include their identifiers at the call site:
+When calling a function with keyword parameters, the name of the parameter is written at the call site, separated from the argument by an equals sign:
+
+```oxiby
+fn greet(name = "Oxiby")
+```
+
+While positional arguments must appear in the order the parameters are defined, keyword arguments can be given in any order:
 
 ```oxiby
 fn example(x: String, y: String, :a: String, :b: String) {}
 
 fn main() {
-    example("positional x", "positional y", a: "keyword a", b: "keyword b")
+    example("positional x", "positional y", b = "keyword b", a = "keyword a")
 }
 ```
+
+Notice that the in the function definition, `a` comes before `b`, but when called, `b` is given before `a`.
+Either order of the keyword arguments will work.
 
 The programmer can decide whether to use positional or keyword parameters as they choose.
 A good rule of thumb is to use positional parameters when a function has only one parameter, or when the order of parameters is obvious and easy to remember.
@@ -80,7 +90,7 @@ The type of value a function returns is declared by an arrow followed by a type 
 In this case, our function returns a `String`.
 
 The value returned by a function is its final expression.
-In our case, that's the string `"Hello, #{name}!"`.
+In our case, that's the string `"Hello, #{name}!"`.
 If we want, we can also use the `return` keyword to specify the returned value explicitly.
 This form can be used to "return early" from a function, even if it's not the last line of the function.
 We'll learn in a future chapter why we might want to do so.

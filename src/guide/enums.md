@@ -53,8 +53,8 @@ enum Quadrilateral {
 ```
 
 In this example, the `Rectangle` variant is a tuple with two integers representing the height and width of the quadrilateral, while the `Square` variant is a tuple with an Integer representing the length of all four sides.
-Note that a trailing comma in the single-element tuple is not necessary.
-That's only needed when creating a tuple value.
+Note that a trailing comma in the single-element tuple variant is not necessary.
+That's only needed when creating a "raw" tuple value with one element.
 
 ## Methods
 
@@ -119,8 +119,8 @@ enum E {
 fn main() {
     let e = [
         E.StructVariant {
-            a: "a",
-            b: 1,
+            a = "a",
+            b = 1,
         },
         E.TupleVariant("t"),
         E.UnitVariant,

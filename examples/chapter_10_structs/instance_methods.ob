@@ -9,8 +9,8 @@ struct Person {
 
 fn main() {
     let person = Person {
-        name: "Alice",
-        age: 42,
+        name = "Alice",
+        age = 42,
     }
 
     //  Prints "My name is Alice."

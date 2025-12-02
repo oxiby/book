@@ -3,7 +3,7 @@ pub struct ShoppingList {
 
     pub fn new() -> Self {
         ShoppingList {
-            map: HashMap.new(),
+            map = HashMap.new(),
         }
     }
 

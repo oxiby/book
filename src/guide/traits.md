@@ -53,8 +53,8 @@ impl ToString for Person {
 
 fn main() {
     let person = Person {
-        name: "Alice",
-        age: 42,
+        name = "Alice",
+        age = 42,
     }
 
     // Prints "Alice is 42 years old."
@@ -64,7 +64,7 @@ fn main() {
 
 `Person` is the same as we've seen before: a struct with a string name and an integer age.
 We **implement** the `ToString` trait for `Person` with the `impl` keyword followed by the trait name, the `for` keyword, and then the type we're implementing the trait for, `Person`.
-Inside the curly braces, we define each function from the trait, but this time we provide a function body that determines how to create a `String` given a `Person`.
+Inside the curly braces, we define each function from the trait, but this time we provide a function body that determines how to create a `String`, given a `Person`.
 
 In the `main` function, we create a person and then pass it to the `print_line` function.
 Notice that we don't actually call the `to_string` method anywhere.
@@ -73,20 +73,18 @@ What was the point of implementing the trait if we don't use it?
 To understand that, we need to look at the signature of the `print_line` function:
 
 ```oxiby
-fn print_line(s: s) where s: ToString
+fn print_line(s: s) where s ^ ToString
 ```
 
-There's also something new after the return type:
-There's some new syntax we haven't seen before after the parameters.
-The `where` keyword followed by some type shenanigans.
-This is called a "where clause" and it lists **constraints** on the types in the signature.
+There's also something new after the return type; syntax we haven't seen before after the parameters.
+This is called a **where clause** and it lists **constraints** on the types in the signature.
 
-We know that a type starting with a lowercase letter is actually a type parameter, and that the parameter `s: s` means that the function accepts a value of some type `s` that will be bound to the variable `s`.
+We know that a type starting with a lowercase letter is actually a type parameter, and that the parameter syntax `s: s` means that the function accepts a value of some type `s` that will be bound to the variable `s`.
 Don't be confused about the repetition of the letter here.
 It's just how this particular function is defined.
 The parameter could just as easily be something like `string: t` or any other combination of variable names and it would work the same way.
 
-But what is the meaning of the `s: ToString` in the where clause?
+But what is the meaning of the `s ^ ToString` in the where clause?
 This means that the type parameter `s` cannot be a value of _any_ type.
 It must be a value of a type that implements the `ToString` trait.
 We say that `s` is **constrained** to a type that implements `ToString` or that "`s` must be `ToString`."
@@ -111,7 +109,7 @@ fn add(a: t, b: t) -> t {
 }
 ```
 
-We know now that we can't use methods unless we know that the types involved implement those methods.
+We know now that we can't use methods unless the types involved implement those methods.
 We can't add two `t`s together if we don't know that they support addition.
 In Oxiby, operators are implemented as traits.
 If we specify that `t` must be `Add`, our function will work as we orignally expect:
@@ -119,7 +117,7 @@ If we specify that `t` must be `Add`, our function will work as we orignally exp
 ```oxiby
 use std.ops Add
 
-fn add(a: t, b: t) -> t where t: Add {
+fn add(a: t, b: t) -> t where t ^ Add {
     a + b
 }
 ```
@@ -134,9 +132,9 @@ To do that, we'll need to look at how `Add` is defined:
 
 ```oxiby
 pub trait Add<rhs> where rhs = Self {
-    type Output
+    type output
 
-    fn add(self, other: rhs) -> Self.Output
+    fn add(self, other: rhs) -> output
 }
 ```
 
@@ -146,9 +144,9 @@ This means that when a type implements `Add`, it doesn't need to specify the con
 If it doesn't, `rhs` is assumed to be the same type as the type implementing the trait.
 In our case, that will mean that `rhs` will be `ShoppingList`, because we're adding two shopping lists together.
 
-The second part of the where clause specifies a type `Self.Output`.
+The second new construct is the `type output` inside the trait body.
 This is called an **associated type**.
-It's a generic type that the trait implementation must specify.
+It's a generic type that each trait implementation must specify.
 We'll see how it's different from a regular generic type like `rhs` in a moment.
 For now, let's implement `Add` for `ShoppingList`, with a quick recap of how `ShoppingList` is defined:
 
@@ -162,7 +160,7 @@ struct ShoppingList {
 
     fn new() -> Self {
         Self {
-            map: HashMap.new(),
+            map = HashMap.new(),
         }
     }
 
@@ -171,7 +169,7 @@ struct ShoppingList {
 impl Add for ShoppingList {
     type output = Self
 
-    fn add(self, other: Self) -> Self.Output {
+    fn add(self, other: Self) -> output {
         let combined_map = HashMap.new()
 
         for (key, value) in self.map {
@@ -183,7 +181,7 @@ impl Add for ShoppingList {
         }
 
         ShoppingList {
-            map: combined_map,
+            map = combined_map,
         }
     }
 }
@@ -203,9 +201,10 @@ fn main() {
 }
 ```
 
-When implementing `Add` for `ShoppingList`, we specify `Self.Output`, the type that the `add` function will return, as `Self`.
 As noted, because the type parameter `rhs` defaults to `Self`, which is the type we want in this case, we don't need to specify its concrete type in the implementation.
 If it were required, the first line of the implementation would read `impl Add<ShoppingList> for ShoppingList` but it would mean the same thing.
+However, we do need to specify a concrete type for the associated type, `output`.
+We say that for this trait implementation, `output` is `Self`.
 Essentially this definition says, "When you add a `ShoppingList` to another `ShoppingList`, you get a `ShoppingList` back."
 
 The implementation of the `add` method creates an empty hash map, copies over each key/value pair from `self` (which is the `ShoppingList` on the left-hand side of the addition operation), and then copies over each key/value pair from `other` (the `ShoppingList` on the right-hand side), taking care to add quantities to existing ones if there was already a value for a particular key in the hash map.
@@ -213,7 +212,7 @@ Finally, a new `ShoppingList` with the new hash map is constructed and returned.
 
 > [!WARNING]
 > The `Add` trait is not yet mapped to the `+` operator.
-> The version of the above program found in the examples directory uses a method `add` on `ShoppingList` instead to account for this.
+> The version of the above program found in the examples directory explicitly calls the method `add` on `ShoppingList` instead to account for this.
 
 > [!WARNING]
 > The `Self` type alias is not yet available.
@@ -235,7 +234,7 @@ struct ShoppingList {
 
     fn new() -> Self {
         Self {
-            map: HashMap.new(),
+            map = HashMap.new(),
         }
     }
 
@@ -244,7 +243,7 @@ struct ShoppingList {
 impl Add<(String, Integer)> for ShoppingList {
     type output = Self
 
-    fn add(self, other: (String, Integer)) -> Self.Output {
+    fn add(self, other: (String, Integer)) -> output {
         let combined_map = HashMap.new()
 
         for (key, value) in self.map {
@@ -254,7 +253,7 @@ impl Add<(String, Integer)> for ShoppingList {
         combined_map[other.0] = combined_map[other.0].unwrap_or(0) + other.1
 
         ShoppingList {
-            map: combined_map,
+            map = combined_map,
         }
     }
 }
@@ -275,25 +274,25 @@ In the method body, we copy over just the one key/value pair represented by the 
 
 With these two versions of the trait implemented, we can now add to `ShoppingList`s in two different ways!
 
-This illustrates the difference between the generic type `rhs` and the associated type `Self.Output`.
+This illustrates the difference between the generic type `rhs` and the associated type `output`.
 The concrete type of `rhs` for a given usage is determined by the calling code.
 When the expression on the right-hand side of the `+` is another shopping list, `rhs = ShoppingList`.
 When the expression on the right-hand side of the `+` is a tuple, `rhs = (String, Integer)`.
 
-In contrast, the concrete type of `Self.Output` is determined by the trait implementation.
-The calling code can't change the fact that when two `ShoppingList`s are added, a `Self.Output = ShoppingList` and a new `ShoppingList` is produced.
+In contrast, the concrete type of `output` is determined by the trait implementation.
+The calling code can't change the fact that when two `ShoppingList`s are added, a `output = ShoppingList` and a new `ShoppingList` is produced.
 Likewise, the calling code can't change the fact that adding a `(String, Integer)` to a `ShoppingList` produces a new `ShoppingList` as well.
 
-In our case, `Self.Output` is just `Self`, so adding something to a `ShoppingList` produces a new `ShoppingList`.
+In our case, `output` is just `Self`, so adding something to a `ShoppingList` produces a new `ShoppingList`.
 However, this `Output` associated type allows for the flexibility of the result of the operation being a different type than its operands.
 
 > [!WARNING]
-> The type checker is not implemented yet, so adding a second implementation of a trait for a type will overwrite the previous one.
+> This type checking is not implemented yet, so adding a second implementation of a trait for a type will overwrite the previous one.
 As such, the two example programs in this chapter cannot currently be combined into one.
 
 > [!WARNING]
 > The `Add` trait is not yet mapped to the `+` operator.
-> The version of the above program found in the examples directory uses a method `add` on `ShoppingList` instead to account for this.
+> The version of the above program found in the examples directory explicitly calls the method `add` on `ShoppingList` instead to account for this.
 
 > [!WARNING]
 > The `Self` type alias is not yet available.

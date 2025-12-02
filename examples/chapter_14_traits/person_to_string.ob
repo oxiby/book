@@ -11,8 +11,8 @@ impl ToString for Person {
 
 fn main() {
     let person = Person {
-        name: "Alice",
-        age: 42,
+        name = "Alice",
+        age = 42,
     }
 
     // Prints "Alice is 42 years old."

@@ -18,13 +18,13 @@ struct Person {
 A struct is defined with the `struct` keyword, followed by a type name beginning with a capital letter, and then a comma-separated list of fields inside curly braces.
 A field is a name beginning with a lower case letter, a colon, and the type of the field.
 
-Constructing a struct inside a function uses very similar syntax, but specifies the values instead of the types:
+Constructing a struct inside a function uses similar syntax, but specifies the values after an equals sign instead of the types after a colon:
 
 ```oxiby
 fn alice() -> Person {
     Person {
-        name: "Alice",
-        age: 42,
+        name = "Alice",
+        age = 42,
     }
 }
 ```
@@ -33,8 +33,8 @@ Fields can be accessed with the `.` operator for reading and writing:
 
 ```oxiby
 let person = Person {
-    name: "Alice",
-    age: 42,
+    name = "Alice",
+    age = 42,
 }
 
 //  Prints "The person's name is Alice."
@@ -67,8 +67,8 @@ struct Person {
 
 fn main() {
     let person = Person {
-        name: "Alice",
-        age: 42,
+        name = "Alice",
+        age = 42,
     }
 
     //  Prints "My name is Alice."
@@ -114,7 +114,7 @@ struct ShoppingList {
 
     fn new() -> Self {
         Self {
-            map: ["apple": 3, "banana": 1, "carrot": 2],
+            map = ["apple": 3, "banana": 1, "carrot": 2],
         }
     }
 

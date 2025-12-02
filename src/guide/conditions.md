@@ -86,7 +86,7 @@ This checks whether `"Oxiby"` is bound to the variable `name`.
 If it is, the code inside the first set of curly braces is evaluated, producing `"Greetings"`.
 If it isn't, the code inside the second set of curly braces is evaluated, producing `"Hello"`.
 
-In our example program, we're assinging the conditional expression to a variable.
+In our example program, we're assigning the conditional expression to a variable.
 
 ```oxiby
 let salutation = if name == "Oxiby" {

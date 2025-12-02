@@ -98,8 +98,8 @@ struct Game {
 
 fn main() {
     let game = Game {
-        player: Player.X,
-        rows: List.times(3, fn () { List.times(3, fn () { None }) }),
+        player = Player.X,
+        rows = List.times(3, fn () { List.times(3, fn () { None }) }),
     }
 
     loop {
@@ -135,7 +135,7 @@ fn main() {
 
             match read_line().map(fn (s) { s.to_i() }) {
                 Ok(cell) -> {
-                    if game.choose(cell: cell, player: game.player) {
+                    if game.choose(cell = cell, player = game.player) {
                         game.player = match game.player {
                             Player.X -> Player.O,
                             Player.O -> Player.X,
@@ -250,8 +250,8 @@ The `main` function begins by initializing the state for a new game:
 
 ```oxiby
 let game = Game {
-    player: Player.X,
-    rows: List.times(3, fn () { List.times(3, fn () { None }) }),
+    player = Player.X,
+    rows = List.times(3, fn () { List.times(3, fn () { None }) }),
 }
 ```
 
@@ -280,7 +280,7 @@ List.times(
 Here's its signature:
 
 ```oxiby
-fn times(n: Integer, f: f) -> List<t> where f: Fn() -> t
+fn times(n: Integer, f: f) -> List<t> where f ^ Fn() -> t
 ```
 
 The function takes an integer, which is the number of elements the new list should have, and a closure.
@@ -467,7 +467,7 @@ loop {
 
     match read_line().map(fn (s) { s.to_i() }) {
         Ok(cell) -> {
-            if game.choose(cell: cell, player: game.player) {
+            if game.choose(cell = cell, player = game.player) {
                 game.player = match game.player {
                     Player.X -> Player.O,
                     Player.O -> Player.X,

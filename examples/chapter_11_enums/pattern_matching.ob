@@ -10,8 +10,8 @@ enum E {
 fn main() {
     let e = [
         E.StructVariant {
-            a: "a",
-            b: 1,
+            a = "a",
+            b = 1,
         },
         E.TupleVariant("t"),
         E.UnitVariant,
