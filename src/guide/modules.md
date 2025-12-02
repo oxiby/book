@@ -91,12 +91,12 @@ Consider the following example:
 // File: examples/chapter_12_modules/exposed_shopping_list.ob
 
 struct ShoppingList {
-    map: HashMap<String, Integer>,
+    map: Map<String, Integer>,
 }
 
 fn main() {
     let shopping_list = ShoppingList {
-        map = HashMap.new(),
+        map = Map.new(),
     }
 
     shopping_list.map["apple"] = -1
@@ -105,9 +105,9 @@ fn main() {
 }
 ```
 
-In the chapter on hash maps, we used a hash map to represent a shopping list.
+In the chapter on maps, we used a map to represent a shopping list.
 In this example, we use a dedicated struct called `ShoppingList` to represent it.
-Internally, our struct uses the same hash map as before to keep track of the actual data.
+Internally, our struct uses the same map as before to keep track of the actual data.
 In our main function, we create a new shopping list, and then set the quantity of apples to buy to -1.
 But that doesn't make any sense.
 How can you buy a negative number of apples?
@@ -119,11 +119,11 @@ If we define the struct in its own module, we can use encapsulation to prevent t
 // File: examples/chapter_12_modules/shopping_list.ob
 
 pub struct ShoppingList {
-    map: HashMap<String, Integer>,
+    map: Map<String, Integer>,
 
     pub fn new() -> Self {
         Self {
-            map = HashMap.new(),
+            map = Map.new(),
         }
     }
 

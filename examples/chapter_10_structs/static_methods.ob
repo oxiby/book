@@ -1,9 +1,9 @@
 struct ShoppingList {
-    map: HashMap<String, Integer>,
+    map: Map<String, Integer>,
 
     fn new() -> Self {
         ShoppingList {
-            map = ["apple": 3, "banana": 1, "carrot": 2],
+            map = ["apple" = 3, "banana" = 1, "carrot" = 2],
         }
     }
 

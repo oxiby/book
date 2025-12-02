@@ -1,11 +1,11 @@
 use std.ops Add
 
 struct ShoppingList {
-    map: HashMap<String, Integer>,
+    map: Map<String, Integer>,
 
     fn new() -> Self {
         ShoppingList {
-            map = HashMap.new(),
+            map = Map.new(),
         }
     }
 
@@ -15,7 +15,7 @@ impl Add for ShoppingList {
     type output = Self
 
     fn add(self, other: Self) -> output {
-        let combined_map = HashMap.new()
+        let combined_map = Map.new()
 
         for (key, value) in self.map {
             combined_map[key] = value

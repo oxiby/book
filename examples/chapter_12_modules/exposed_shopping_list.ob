@@ -1,10 +1,10 @@
 struct ShoppingList {
-    map: HashMap<String, Integer>,
+    map: Map<String, Integer>,
 }
 
 fn main() {
     let shopping_list = ShoppingList {
-        map = HashMap.new(),
+        map = Map.new(),
     }
 
     shopping_list.map["apple"] = -1

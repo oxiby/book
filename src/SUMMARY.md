@@ -10,7 +10,7 @@
 - [Reading from standard input](guide/stdin.md)
 - [Handling errors with Result and match](guide/errors.md)
 - [Iterating through collections](guide/loops.md)
-- [Associating values with hash maps](guide/hash_maps.md)
+- [Associating values with maps](guide/maps.md)
 - [Accounting for missing data with Option](guide/option.md)
 - [Sharing behavior with closures](guide/closures.md)
 - [Modeling data with structs](guide/structs.md)

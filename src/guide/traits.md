@@ -156,11 +156,11 @@ For now, let's implement `Add` for `ShoppingList`, with a quick recap of how `Sh
 use std.ops Add
 
 struct ShoppingList {
-    map: HashMap<String, Integer>,
+    map: Map<String, Integer>,
 
     fn new() -> Self {
         Self {
-            map = HashMap.new(),
+            map = Map.new(),
         }
     }
 
@@ -170,7 +170,7 @@ impl Add for ShoppingList {
     type output = Self
 
     fn add(self, other: Self) -> output {
-        let combined_map = HashMap.new()
+        let combined_map = Map.new()
 
         for (key, value) in self.map {
             combined_map[key] = value
@@ -207,8 +207,8 @@ However, we do need to specify a concrete type for the associated type, `output`
 We say that for this trait implementation, `output` is `Self`.
 Essentially this definition says, "When you add a `ShoppingList` to another `ShoppingList`, you get a `ShoppingList` back."
 
-The implementation of the `add` method creates an empty hash map, copies over each key/value pair from `self` (which is the `ShoppingList` on the left-hand side of the addition operation), and then copies over each key/value pair from `other` (the `ShoppingList` on the right-hand side), taking care to add quantities to existing ones if there was already a value for a particular key in the hash map.
-Finally, a new `ShoppingList` with the new hash map is constructed and returned.
+The implementation of the `add` method creates an empty map, copies over each key/value pair from `self` (which is the `ShoppingList` on the left-hand side of the addition operation), and then copies over each key/value pair from `other` (the `ShoppingList` on the right-hand side), taking care to add quantities to existing ones if there was already a value for a particular key in the map.
+Finally, a new `ShoppingList` with the new map is constructed and returned.
 
 > [!WARNING]
 > The `Add` trait is not yet mapped to the `+` operator.
@@ -230,11 +230,11 @@ Perhaps a useful one would be `(String, Integer)`, a tuple of two values that ma
 use std.ops Add
 
 struct ShoppingList {
-    map: HashMap<String, Integer>,
+    map: Map<String, Integer>,
 
     fn new() -> Self {
         Self {
-            map = HashMap.new(),
+            map = Map.new(),
         }
     }
 
@@ -244,7 +244,7 @@ impl Add<(String, Integer)> for ShoppingList {
     type output = Self
 
     fn add(self, other: (String, Integer)) -> output {
-        let combined_map = HashMap.new()
+        let combined_map = Map.new()
 
         for (key, value) in self.map {
             combined_map[key] = value
@@ -270,7 +270,7 @@ fn main() {
 ```
 
 This implementation of the trait is similar, but we specify `rhs` explicitly with `trait Add<(String, Integer)>`, because in this case, `rhs` is a `(String, Integer)` rather than a `ShoppingList`.
-In the method body, we copy over just the one key/value pair represented by the tuple into the new hash map.
+In the method body, we copy over just the one key/value pair represented by the tuple into the new map.
 
 With these two versions of the trait implemented, we can now add to `ShoppingList`s in two different ways!
 

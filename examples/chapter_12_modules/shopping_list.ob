@@ -1,9 +1,9 @@
 pub struct ShoppingList {
-    map: HashMap<String, Integer>,
+    map: Map<String, Integer>,
 
     pub fn new() -> Self {
         ShoppingList {
-            map = HashMap.new(),
+            map = Map.new(),
         }
     }
 

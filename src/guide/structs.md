@@ -1,7 +1,7 @@
 # Modeling data with structs
 
 Our programs so far have dealt entirely with types native to Oxiby.
-These have mostly been scalar types like `String` and `Boolean`, but we've also seen compound types like `List` and `HashMap`.
+These have mostly been scalar types like `String` and `Boolean`, but we've also seen compound types like `List` and `Map`.
 If we want to create our own types to model data in our programs, there are two options available.
 The first are **structs**, which is short for **structures**.
 We might also hear the same concept described as **records**, **objects**, or **product types** in other languages.
@@ -110,11 +110,11 @@ These are functions that initialize a new value of the type:
 // File: examples/chapter_10_structs/static_methods.ob
 
 struct ShoppingList {
-    map: HashMap<String, Integer>,
+    map: Map<String, Integer>,
 
     fn new() -> Self {
         Self {
-            map = ["apple": 3, "banana": 1, "carrot": 2],
+            map = ["apple" = 3, "banana" = 1, "carrot" = 2],
         }
     }
 

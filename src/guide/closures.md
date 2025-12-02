@@ -41,7 +41,7 @@ A great example is the `map` method on the `Result` type.
 Let's say we want to read in a line of text from the standard input and transform the string created into the number of characters that were in the string.
 
 ```oxiby
-// File: examples/chapter_09_closures/map.ob
+// File: examples/chapter_09_closures/map_method.ob
 
 use std.io read_line
 

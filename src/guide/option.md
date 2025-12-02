@@ -37,15 +37,15 @@ let some_integer = Some(123)
 let none = None
 ```
 
-In the last chapter, we asked what indexing into a hash map evaluated to:
+In the last chapter, we asked what indexing into a map evaluated to:
 
 ```oxiby
-let shopping_list = ["apple": 3, "banana": 1, "carrot": 2]
+let shopping_list = ["apple" = 3, "banana" = 1, "carrot" = 2]
 shopping_list["carrot"]
 ```
 
 The answer is `Some(2)`, a value of type `Option<Integer>`.
-We might think it should just be `Integer`, since we can clearly see that we associated `"carrot"` with `2` when creating the hash map on the previous line.
+We might think it should just be `Integer`, since we can clearly see that we associated `"carrot"` with `2` when creating the map on the previous line.
 But if that was the case, what would the indexing operation return for a key that had no value associated with it?
 
 ```oxiby
@@ -57,10 +57,10 @@ But this is exactly what `Option` is for:
 Telling us when a value of a certain type might be there and might not.
 Using an enum, we're able to return one of two variants which are both values of the same type.
 
-With `Option` we can safely handle hash map indexing by `match`ing on an optional value:
+With `Option` we can safely handle map indexing by `match`ing on an optional value:
 
 ```oxiby
-fn food_count(shopping_list: HashMap<String, Integer>, food: String) {
+fn food_count(shopping_list: Map<String, Integer>, food: String) {
     match shopping_list[food] {
         Some(quantity) => print_line("Buy #{quantity} #{food}."),
         None => print_line("Do not buy any #{food}"),
@@ -68,7 +68,7 @@ fn food_count(shopping_list: HashMap<String, Integer>, food: String) {
 }
 ```
 
-This function takes a hash map of strings to integers, like our shopping list, and a string to use to index into the hash map.
+This function takes a map of strings to integers, like our shopping list, and a string to use to index into the map.
 We perform the index and then match on the returned `Option`.
 If there was a value associated with key, we print both the key and the value.
 If there was no value associated with the key, we print a fallback message with only the key.
@@ -82,14 +82,14 @@ This enforcement reduces bugs in our programs because we can't simply forget to 
 
 ## A note about lists
 
-Recall that when we learned about lists, we learned that indexing into a list uses the same square bracket syntax as indexing into a hash map, only with an integer offset rather than a key name:
+Recall that when we learned about lists, we learned that indexing into a list uses the same square bracket syntax as indexing into a map, only with an integer offset rather than a key name:
 
 ```oxiby
 let fruits = ["apple", "banana", "carrot"]
 fruits[0] // "apple"
 ```
 
-It's worth noting that currently, this operation does _not_ return an `Option`, as it does for hash maps, even though it's the same idea, conceptually.
+It's worth noting that currently, this operation does _not_ return an `Option`, as it does for maps, even though it's the same idea, conceptually.
 Instead, accessing an array index that is out of bounds (e.g. `fruits[3]` above) will cause an error when the program actually runs.
 This is primarily for convenience, since manual bounds checking on every list index would add a lot of extra code when working with nested lists.
 However, this is likely to change to a safer construct in a future revision of Oxiby.
