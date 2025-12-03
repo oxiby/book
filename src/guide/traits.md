@@ -73,7 +73,7 @@ What was the point of implementing the trait if we don't use it?
 To understand that, we need to look at the signature of the `print_line` function:
 
 ```oxiby
-fn print_line(s: s) where s ^ ToString
+fn print_line(s: s) where s is ToString
 ```
 
 There's also something new after the return type; syntax we haven't seen before after the parameters.
@@ -84,7 +84,7 @@ Don't be confused about the repetition of the letter here.
 It's just how this particular function is defined.
 The parameter could just as easily be something like `string: t` or any other combination of variable names and it would work the same way.
 
-But what is the meaning of the `s ^ ToString` in the where clause?
+But what is the meaning of the `s is ToString` in the where clause?
 This means that the type parameter `s` cannot be a value of _any_ type.
 It must be a value of a type that implements the `ToString` trait.
 We say that `s` is **constrained** to a type that implements `ToString` or that "`s` must be `ToString`."
@@ -117,7 +117,7 @@ If we specify that `t` must be `Add`, our function will work as we orignally exp
 ```oxiby
 use std.ops Add
 
-fn add(a: t, b: t) -> t where t ^ Add {
+fn add(a: t, b: t) -> t where t is Add {
     a + b
 }
 ```

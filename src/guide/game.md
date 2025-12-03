@@ -280,7 +280,7 @@ List.times(
 Here's its signature:
 
 ```oxiby
-fn times(n: Integer, f: f) -> List<t> where f ^ Fn() -> t
+fn times(n: Integer, f: f) -> List<t> where f is Fn() -> t
 ```
 
 The function takes an integer, which is the number of elements the new list should have, and a closure.

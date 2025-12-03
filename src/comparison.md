@@ -370,7 +370,7 @@ There is only one form of anonymous function, the closure, and functions must be
 struct MyArray<t> {
     array: List<t>,
 
-    fn each(self, f: f) where f ^ Fn() {
+    fn each(self, f: f) where f is Fn() {
         for element in self.array {
             f(element)
         }
