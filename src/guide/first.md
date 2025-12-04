@@ -2,9 +2,28 @@
 
 As is tradition, we'll begin learning Oxiby with the ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) program.
 
-Create an empty directory to work on the programs in this book.
-Inside this new directory, create a new file called `hello_world.ob`.
-Enter the following text into the file:
+To create a new Oxiby project, run:
+
+```
+$ obc new hello_oxiby
+```
+
+This will create a new directory structured like this:
+
+```
+hello_oxiby
+└── src
+    └── main.ob
+```
+
+Change to the new directory:
+
+```
+$ cd hello_oxiby
+```
+
+`main.ob` is the file where we'll write our program.
+Open it in your preferred text editor and replace its default contents with the following:
 
 ```oxiby
 // File: examples/chapter_01_first/hello_world.ob
@@ -15,10 +34,13 @@ fn main() {
 }
 ```
 
+Recall from [conventions](/conventions.html) that the first line of that source file is just a convention in this book to show you where to find the example code in the book's own Git repository.
+You don't need to copy it into your own file, though it's fine if you do.
+
 Use the Oxiby compiler to run the program and see its output:
 
 ```
-$ obc run hello_world.ob
+$ obc run
 Hello, World!
 ```
 

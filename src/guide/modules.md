@@ -17,7 +17,7 @@ use database.tables Person, load_people_from_json
 The syntax is the keyword `use`, followed by the path to the module (as you would see in the file system, except with the slashes replaced with dots and the ".ob" suffix omitted), and a comma-separated list of items defined in that module to be imported into the current one.
 You can have as many imports in a module as you need.
 
-The path of a module is written relative to the main module of the program (the one you provide to the `obc build` command as the `INPUT` argument).
+The path of a module is written relative to the main module of the program (the one you provide to the `obc build` command as the `INPUT` argument, which is `src/main.rs` by default).
 Modules beginning with the path `std` are reserved for Oxiby's standard library.
 
 There can't be two items in a module with the same name, so if there's a name conflict, imports must be renamed with the `->` operator:

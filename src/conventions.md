@@ -55,7 +55,7 @@ Lines in the same code block that do not begin with a `$` or `>` indicate the st
 Example:
 
 ```
-$ obc run hello_world.ob
+$ obc run
 > Oxiby
 Hello, Oxiby!
 ```

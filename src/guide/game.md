@@ -6,7 +6,7 @@ We're going to write a version of the game tic-tac-toe that you can play with a 
 We'll start by looking at the complete program.
 Then we'll break it down bit by bit to understand how it works and how it uses all the things we've learned in this book (as well as a few new things).
 
-Paste the code below into an Oxiby file and run it with `obc run` to try the game.
+Paste the code below into the main file of an Oxiby project and run it with `obc run` to try the game.
 
 ```oxiby
 // File: examples/chapter_15_game/tic_tac_toe.ob

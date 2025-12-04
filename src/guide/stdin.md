@@ -26,7 +26,7 @@ fn main() {
 Run the program as usual:
 
 ```
-$ obc run hello_world.ob
+$ obc run
 ```
 
 Notice that only a `>` appears but no greeting is output yet.
@@ -34,7 +34,7 @@ The program waits for input from you before it can proceed.
 Type your name and hit return to let the program continue and greet you.
 
 ```plain
-$ obc run hello_world.ob
+$ obc run
 > Al Dente
 Hello, Al Dente!
 ```

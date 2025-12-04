@@ -34,7 +34,7 @@ fn main() {
 Run the program and enter multiple names separated by spaces when the program pauses for input:
 
 ```
-$ obc run hello_world.ob
+$ obc run
 > Oxiby Rust Ruby
 Hello, Oxiby!
 Hello, Rust!

@@ -28,7 +28,7 @@ fn main() {
 Use the Oxiby compiler to run the program and see its ouput:
 
 ```
-$ obc run hello_world.ob
+$ obc run
 Greetings, Oxiby!
 ```
 
