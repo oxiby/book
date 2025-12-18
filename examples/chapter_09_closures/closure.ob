@@ -4,5 +4,5 @@ fn main() {
     }
 
     // Prints "Hello from a closure!"
-    closure.call()
+    closure()
 }

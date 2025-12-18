@@ -10,5 +10,5 @@ fn main() {
     let greeting = make_greeting()
 
     // Prints "Hello, Oxiby!"
-    print_line(greeting.call())
+    print_line(greeting())
 }
