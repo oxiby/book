@@ -1,6 +1,7 @@
 [Introduction](README.md)
 [Conventions](conventions.md)
 [Installation](installation.md)
+[Command-line interface](cli.md)
 
 ---
 
