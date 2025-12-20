@@ -11,6 +11,7 @@ Paste the code below into the main file of an Oxiby project and run it with `obc
 ```oxiby
 // File: examples/chapter_15_game/tic_tac_toe.ob
 
+use std.convert parse_integer
 use std.io read_line
 
 enum Player {
@@ -133,7 +134,7 @@ fn main() {
         loop {
             print("It's #{game.player}'s turn. Enter the cell to play (1-9): ")
 
-            match read_line().map(fn (s) { s.to_i() }) {
+            match read_line().and_then(fn (s) { parse_integer(s) }) {
                 Ok(cell) -> {
                     if game.choose(cell = cell, player = game.player) {
                         game.player = match game.player {
@@ -465,7 +466,7 @@ The last part of our game is the logic that reads input from the current player 
 loop {
     print("It's #{game.player}'s turn. Enter the cell to play (1-9): ")
 
-    match read_line().map(fn (s) { s.to_i() }) {
+    match read_line().and_then(fn (s) { parse_integer(s) }) {
         Ok(cell) -> {
             if game.choose(cell = cell, player = game.player) {
                 game.player = match game.player {
@@ -488,7 +489,7 @@ Note that this is a second `loop` _inside_ our main game `loop`.
 
 We use `game.player` to prompt the player whose turn it is to choose a cell, then we read their choice.
 Recall that `read_line` returns `Result<String, String>` so it might succeed and give us the input we want, or it might fail with some sort of I/O error.
-By using `map`, we provide a closure that parses the input into an integer, but only in the case that `read_line` returns the `Result.Ok` variant.
+By using `and_then`, we provide a closure that parses the input into an integer using the function `parse_integer` from the `std.convert` module, but only in the case that `read_line` returns the `Result.Ok` variant.
 By parsing the input into a number, we turn values like `"1"` into the integer `1`, so we can perform numeric operations on them.
 
 We match on this mapped result and check for the `Ok` case.
@@ -496,13 +497,8 @@ If we got a valid integer back, we attempt to place their mark in the chosen cel
 `choose` returns a boolean indicating whether or not the player's mark was successfully placed in the cell.
 If it was, we use a `match` expression to reassign the value of `game.player` to the opposite of the current player, which effectively changes which player's turn it is on the next iteration of the main game loop.
 Then we `break` out of the inner loop to start a new turn.
-If `read_line` returned an `Err` or `game.choose` returned false, we fall through to the `print_line` statements at the bottom, letting the player know that whatever input they entered either couldn't be read or wasn't an available cell.
+If `read_line` or `parse_integer` returned an `Err`, or if `game.choose` returned false, we fall through to the `print_line` statements at the bottom, letting the player know that whatever input they entered either couldn't be read or wasn't an available cell.
 The inner loop then starts again, and continues the same process until the player chooses a valid cell.
-
-> [!WARNING]
-> `s.to_i` is just Ruby's `String#to_i` method exposed directly, which does loose conversions like parsing `"a"` as `0`.
-> This program is written assuming the input will always successfully parse into a valid integer, but that isn't guaranteed.
-> In the future, Oxiby will provide a safer technique for parsing integers from strings.
 
 ### Choosing a cell
 
